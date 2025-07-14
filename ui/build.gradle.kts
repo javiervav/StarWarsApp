@@ -1,7 +1,8 @@
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
-    alias(libs.plugins.kotlin.compose)
+    alias(libs.plugins.ksp.plugin)
+    alias(libs.plugins.compose.compiler)
 }
 
 android {
@@ -31,10 +32,13 @@ android {
     kotlinOptions {
         jvmTarget = "11"
     }
+    buildFeatures {
+        compose = true
+    }
 }
 
 dependencies {
 
-    implementation(libs.androidx.material3)
+    implementation(libs.androidx.compose.material3)
     implementation(platform(libs.androidx.compose.bom))
 }

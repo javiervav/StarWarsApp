@@ -9,15 +9,20 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.ui.Modifier
 import com.example.ui.theme.StarWarsAppTheme
+import dagger.hilt.android.AndroidEntryPoint
 
-class MainActivity : ComponentActivity() {
+@AndroidEntryPoint
+class StarWarsActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         enableEdgeToEdge()
         setContent {
             StarWarsAppTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    StarWarsNavGraph(modifier = Modifier.padding(innerPadding))
+                    StarWarsNavGraph(
+                        modifier = Modifier.padding(innerPadding),
+                    )
                 }
             }
         }

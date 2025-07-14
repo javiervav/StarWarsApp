@@ -9,8 +9,9 @@ import androidx.navigation.compose.rememberNavController
 import com.example.presentation.characterslist.CharactersListScreen
 
 @Composable
-fun StarWarsNavGraph(modifier: Modifier) {
-
+fun StarWarsNavGraph(
+    modifier: Modifier,
+) {
     val navHostController: NavHostController = rememberNavController()
 
     NavHost(
@@ -18,7 +19,9 @@ fun StarWarsNavGraph(modifier: Modifier) {
         startDestination = CharactersList,
     ) {
         composable<CharactersList> {
-            CharactersListScreen(modifier)
+            CharactersListScreen(
+                modifier = modifier,
+            )
         }
     }
 }

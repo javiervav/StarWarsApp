@@ -1,7 +1,8 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
-    alias(libs.plugins.kotlin.compose)
+    alias(libs.plugins.ksp.plugin)
+    alias(libs.plugins.hilt.plugin)
 }
 
 android {
@@ -34,11 +35,23 @@ android {
     kotlinOptions {
         jvmTarget = "11"
     }
-    buildFeatures {
-        compose = true
-    }
 }
 
 dependencies {
+    /**
+     * Module dependencies:
+     * - presentation: Needed to access the launcher Activity this module has in the manifest.
+     * - data: Needed to access the Hilt modules in data, so the use case (with repositories)
+     * can be injected properly in the view models. Remember I don't have Hilt in domain module,
+     * because it's not an android module and I cannot use @Inject or @Module there.
+     */
     implementation(project(":presentation"))
+    implementation(project(":data"))
+
+    /**
+     * Hilt dependencies:
+     * Needed to use @HiltAndroidApp in the Application class.
+     */
+    implementation(libs.hilt.android)
+    ksp(libs.hilt.android.compiler)
 }
