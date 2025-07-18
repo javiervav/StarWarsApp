@@ -1,7 +1,7 @@
 package com.example.data.di
 
-import com.example.data.repository.PeopleRepositoryImpl
-import com.example.domain.repository.PeopleRepository
+import com.example.data.repository.CharactersRepositoryImpl
+import com.example.domain.repository.CharactersRepository
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
@@ -13,6 +13,6 @@ abstract class DataModule {
 
     @Binds
     abstract fun bindPeopleRepository(
-        peopleRepositoryImpl: PeopleRepositoryImpl
-    ): PeopleRepository
+        charactersRepositoryImpl: CharactersRepositoryImpl
+    ): CharactersRepository
 }

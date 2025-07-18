@@ -2,7 +2,7 @@ package com.example.domain.repository
 
 import com.example.domain.model.People
 
-interface PeopleRepository {
+interface CharactersRepository {
 
     suspend fun getPeople(): List<People>
 }

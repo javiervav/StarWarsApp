@@ -1,6 +1,6 @@
 package com.example.presentation.di
 
-import com.example.domain.repository.PeopleRepository
+import com.example.domain.repository.CharactersRepository
 import com.example.domain.usecase.GetCharactersUseCase
 import dagger.Module
 import dagger.Provides
@@ -12,7 +12,7 @@ import dagger.hilt.android.components.ViewModelComponent
 object UseCaseModule {
 
     @Provides
-    fun provideGetCharactersUseCase(peopleRepository: PeopleRepository): GetCharactersUseCase {
-        return GetCharactersUseCase(peopleRepository)
+    fun provideGetCharactersUseCase(charactersRepository: CharactersRepository): GetCharactersUseCase {
+        return GetCharactersUseCase(charactersRepository)
     }
 }

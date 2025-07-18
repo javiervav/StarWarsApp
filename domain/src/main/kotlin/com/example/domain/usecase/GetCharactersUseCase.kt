@@ -1,13 +1,13 @@
 package com.example.domain.usecase
 
 import com.example.domain.model.People
-import com.example.domain.repository.PeopleRepository
+import com.example.domain.repository.CharactersRepository
 
 class GetCharactersUseCase(
-    private val peopleRepository: PeopleRepository
+    private val charactersRepository: CharactersRepository
 ) {
 
     suspend fun invoke(): List<People> {
-        return peopleRepository.getPeople()
+        return charactersRepository.getPeople()
     }
 }
