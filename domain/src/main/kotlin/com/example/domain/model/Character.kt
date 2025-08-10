@@ -1,5 +1,5 @@
 package com.example.domain.model
 
-data class People(
+data class Character(
     val name: String
 )

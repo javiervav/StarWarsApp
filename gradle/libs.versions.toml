@@ -13,6 +13,9 @@ androidxHiltNavigationCompose = "1.2.0"
 retrofit = "3.0.0"
 kotlinxSerializationJson = "1.9.0"
 retrofitKotlinxSerializationConverter = "1.0.0"
+truth = "1.4.4"
+mockk = "1.14.5"
+kotlinxCoroutinesTest = "1.10.2"
 
 [libraries]
 junit = { group = "junit", name = "junit", version.ref = "junit" }
@@ -34,6 +37,9 @@ androidx-hilt-navigation-compose = { group = "androidx.hilt", name = "hilt-navig
 retrofit = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofit" }
 kotlinx-serialization-json = { group = "org.jetbrains.kotlinx", name = "kotlinx-serialization-json", version.ref = "kotlinxSerializationJson" }
 retrofit-kotlinx-serialization-converter = { group = "com.jakewharton.retrofit", name = "retrofit2-kotlinx-serialization-converter", version.ref = "retrofitKotlinxSerializationConverter" }
+truth = { group = "com.google.truth", name = "truth", version.ref = "truth" }
+mockk = { group = "io.mockk", name = "mockk", version.ref = "mockk" }
+kotlinx-coroutines-test = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-test", version.ref = "kotlinxCoroutinesTest" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

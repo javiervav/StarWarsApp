@@ -17,6 +17,7 @@ import javax.inject.Singleton
 object NetworkModule {
 
     private const val STAR_WARS_BASE_URL = "https://swapi.py4e.com/api/"
+    private const val MEDIA_TYPE = "application/json"
 
     @Provides
     @Singleton
@@ -35,7 +36,7 @@ object NetworkModule {
         return Retrofit.Builder()
             .baseUrl(STAR_WARS_BASE_URL)
             .client(okHttpClient)
-            .addConverterFactory(json.asConverterFactory("application/json".toMediaType()))
+            .addConverterFactory(json.asConverterFactory(MEDIA_TYPE.toMediaType()))
             .build()
     }
 

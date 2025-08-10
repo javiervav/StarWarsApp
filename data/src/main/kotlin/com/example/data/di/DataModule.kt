@@ -12,7 +12,7 @@ import dagger.hilt.components.SingletonComponent
 abstract class DataModule {
 
     @Binds
-    abstract fun bindPeopleRepository(
+    abstract fun bindCharactersRepository(
         charactersRepositoryImpl: CharactersRepositoryImpl
     ): CharactersRepository
 }
