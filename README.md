@@ -44,6 +44,5 @@ It depends on the `domain` module to access the repository interfaces it must im
 
 Hilt: For dependency inyection.
 Retrofit: To handle REST API calls.
-
 Truth: For unit testing assertions
 Mockk: For unit testing mocks
