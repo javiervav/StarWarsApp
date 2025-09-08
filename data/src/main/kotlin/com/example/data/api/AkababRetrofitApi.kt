@@ -8,5 +8,5 @@ import retrofit2.http.Path
 internal interface AkababRetrofitApi {
 
     @GET("id/{id}.json")
-    suspend fun getCharacterById(@Path("id") id: String): Response<CharacterImageResponse>
+    suspend fun getCharacterById(@Path("id") id: Int): Response<CharacterImageResponse>
 }

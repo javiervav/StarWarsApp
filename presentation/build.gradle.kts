@@ -55,6 +55,9 @@ dependencies {
     ksp(libs.hilt.android.compiler)
     implementation(libs.androidx.hilt.navigation.compose)
 
+    implementation(libs.coil.compose)
+    implementation(libs.coil.network.okhttp)
+
     testImplementation(libs.junit)
     testImplementation(libs.androidx.navigation.testing)
     testImplementation(libs.hilt.android.testing)

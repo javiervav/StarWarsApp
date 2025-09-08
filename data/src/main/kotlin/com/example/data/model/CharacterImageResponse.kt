@@ -7,5 +7,5 @@ import kotlinx.serialization.Serializable
 @OptIn(InternalSerializationApi::class)
 @Serializable
 internal data class CharacterImageResponse(
-    @SerialName("image") val image: String,
+    @SerialName("image") val imageUrl: String,
 )

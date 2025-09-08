@@ -7,13 +7,11 @@ import kotlin.collections.map
 
 internal class CharacterMapperImpl @Inject constructor() : CharacterMapper {
 
-    override fun toUIModel(characters: List<Character>): List<CharacterUI> {
-        return characters.map { character ->
-            character.toUIModel()
-        }
-    }
+    override fun toUIModel(characters: List<Character>): List<CharacterUI> =
+        characters.map { character -> character.toUIModel() }
 
     private fun Character.toUIModel() = CharacterUI(
         name = this.name,
+        imageUrl = this.imageUrl
     )
 }

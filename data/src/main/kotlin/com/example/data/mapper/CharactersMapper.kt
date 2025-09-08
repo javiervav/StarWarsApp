@@ -2,15 +2,18 @@ package com.example.data.mapper
 
 import com.example.data.model.CharacterResponse
 import com.example.domain.model.Character
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.map
 
 object CharactersMapper {
 
-    fun List<CharacterResponse>.toDomainModel(): List<Character> =
-        this.map { it.toDomainModel() }
+    fun Flow<List<CharacterResponse>>.toDomainModel(): Flow<List<Character>> =
+        map { characters -> characters.map { it.toDomainModel() } }
 
     fun CharacterResponse.toDomainModel(): Character {
         return Character(
-            name = this.name
+            name = this.name,
+            imageUrl = this.imageUrl,
         )
     }
 }

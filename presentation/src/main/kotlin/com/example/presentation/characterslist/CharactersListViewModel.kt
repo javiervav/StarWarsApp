@@ -5,6 +5,7 @@ import com.example.domain.usecase.GetCharactersUseCase
 import com.example.presentation.characterslist.mapper.CharacterMapper
 import com.example.presentation.core.BaseViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -25,12 +26,17 @@ internal class CharactersListViewModel @Inject constructor(
     private fun getCharacters() {
         updateState(action = CharactersListAction.ShowLoader)
         viewModelScope.launch {
-            val characters = getCharactersUseCase.invoke()
-            updateState(
-                action = CharactersListAction.ShowCharacters(
-                    characters = characterMapper.toUIModel(characters)
-                ),
-            )
+            getCharactersUseCase.invoke()
+                .map { characters ->
+                    characterMapper.toUIModel(characters)
+                }
+                .collect { characters ->
+                    updateState(
+                        action = CharactersListAction.ShowCharacters(
+                            characters = characters
+                        )
+                    )
+                }
         }
     }
 }
