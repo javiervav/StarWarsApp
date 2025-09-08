@@ -4,7 +4,7 @@ import com.example.data.api.StarWarsRetrofitApi
 import com.example.data.model.CharacterResponse
 import javax.inject.Inject
 
-class CharactersRemoteDataSource @Inject constructor(
+internal class CharactersRemoteDataSource @Inject constructor(
     private val starWarsRetrofitApi: StarWarsRetrofitApi,
 ) {
 

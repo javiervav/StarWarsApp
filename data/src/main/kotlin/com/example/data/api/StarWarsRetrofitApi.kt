@@ -5,7 +5,7 @@ import kotlinx.serialization.InternalSerializationApi
 import retrofit2.Response
 import retrofit2.http.GET
 
-interface StarWarsRetrofitApi {
+internal interface StarWarsRetrofitApi {
 
     @OptIn(InternalSerializationApi::class)
     @GET("people")

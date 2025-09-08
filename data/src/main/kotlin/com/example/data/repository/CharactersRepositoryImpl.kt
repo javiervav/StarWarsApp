@@ -6,7 +6,7 @@ import com.example.domain.model.Character
 import com.example.domain.repository.CharactersRepository
 import javax.inject.Inject
 
-class CharactersRepositoryImpl @Inject constructor(
+internal class CharactersRepositoryImpl @Inject constructor(
     private val charactersRemoteDataSource: CharactersRemoteDataSource,
 ) : CharactersRepository {
 
