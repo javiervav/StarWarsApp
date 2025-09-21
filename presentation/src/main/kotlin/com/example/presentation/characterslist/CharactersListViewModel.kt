@@ -16,14 +16,10 @@ internal class CharactersListViewModel @Inject constructor(
     private val characterMapper: CharacterMapper,
 ) : BaseViewModel<CharactersListAction, CharactersListUIState, CharactersListReducer>(reducer) {
 
-    init {
-        getCharacters()
-    }
-
     override fun getInitialState(): CharactersListUIState =
         CharactersListUIState.Loading
 
-    private fun getCharacters() {
+    fun getCharacters() {
         updateState(action = CharactersListAction.ShowLoader)
         viewModelScope.launch {
             getCharactersUseCase.invoke()

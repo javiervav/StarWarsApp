@@ -13,4 +13,7 @@ kotlin {
 }
 dependencies {
     implementation(libs.kotlinx.coroutines.core)
+    testImplementation(libs.truth) // Unit testing assertions
+    testImplementation(libs.mockk) // Unit testing mocks
+    testImplementation(libs.kotlinx.coroutines.test) // Unit testing coroutines
 }

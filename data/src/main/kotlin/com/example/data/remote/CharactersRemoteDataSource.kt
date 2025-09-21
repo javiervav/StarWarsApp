@@ -3,8 +3,10 @@ package com.example.data.remote
 import com.example.data.api.AkababRetrofitApi
 import com.example.data.api.StarWarsRetrofitApi
 import com.example.data.model.CharacterResponse
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.flow.flowOn
 import javax.inject.Inject
 
 internal class CharactersRemoteDataSource @Inject constructor(
@@ -29,5 +31,5 @@ internal class CharactersRemoteDataSource @Inject constructor(
                 }
             }
         }
-    }
+    }.flowOn(Dispatchers.IO)
 }

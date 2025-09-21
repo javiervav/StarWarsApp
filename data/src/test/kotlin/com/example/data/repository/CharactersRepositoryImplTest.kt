@@ -6,6 +6,9 @@ import com.example.data.remote.CharactersRemoteDataSource
 import com.google.common.truth.Truth.assertThat
 import io.mockk.coEvery
 import io.mockk.mockk
+import io.mockk.verify
+import kotlinx.coroutines.flow.flowOf
+import kotlinx.coroutines.flow.toList
 import kotlinx.coroutines.test.runTest
 import org.junit.Test
 
@@ -22,14 +25,15 @@ class CharactersRepositoryImplTest {
             getCharacterResponse("John Doe"),
             getCharacterResponse("Jane Doe"),
         )
+        coEvery { charactersRemoteDataSource.getCharacters() } returns flowOf(charactersResponse)
         val expected = listOf(
             getCharacter("John Doe"),
             getCharacter("Jane Doe"),
         )
-        coEvery { charactersRemoteDataSource.getCharacters() } returns charactersResponse
 
-        val result = charactersRepository.getCharacters()
+        val result = charactersRepository.getCharacters().toList()
 
-        assertThat(result).isEqualTo(expected)
+        assertThat(result).isEqualTo(listOf(expected))
+        verify(exactly = 1) { charactersRemoteDataSource.getCharacters() }
     }
 }
