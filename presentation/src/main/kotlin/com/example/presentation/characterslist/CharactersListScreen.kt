@@ -7,6 +7,7 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
@@ -20,6 +21,10 @@ internal fun CharactersListScreen(
     modifier: Modifier,
     viewModel: CharactersListViewModel = hiltViewModel()
 ) {
+    LaunchedEffect(Unit) {
+        viewModel.getCharacters()
+    }
+
     val uiState = viewModel.uiState.collectAsStateWithLifecycle().value
     when (uiState) {
         is CharactersListUIState.Loading -> LoadingScreen(modifier)

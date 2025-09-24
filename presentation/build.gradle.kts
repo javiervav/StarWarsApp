@@ -55,10 +55,17 @@ dependencies {
     ksp(libs.hilt.android.compiler)
     implementation(libs.androidx.hilt.navigation.compose)
 
+    implementation(libs.coil.compose)
+    implementation(libs.coil.network.okhttp)
+
     testImplementation(libs.junit)
     testImplementation(libs.androidx.navigation.testing)
     testImplementation(libs.hilt.android.testing)
     kspTest(libs.hilt.android.testing)
+
+    testImplementation(libs.truth) // Unit testing assertions
+    testImplementation(libs.mockk) // Unit testing mocks
+    testImplementation(libs.kotlinx.coroutines.test) // Unit testing coroutines
 
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
